@@ -148,3 +148,6 @@ STATICFILES_FINDERS = [
 ]
 
 AUTH_USER_MODEL = 'users.CustomUser'
+# login robi redirect na profile my niue mamy profile wiec tutaj zmieniamy na home
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'home'
