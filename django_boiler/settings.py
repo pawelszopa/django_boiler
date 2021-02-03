@@ -15,7 +15,6 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
@@ -30,7 +29,6 @@ ALLOWED_HOSTS = [
     '0.0.0.0'
 ]
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -40,6 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # Third-party
+    'crispy_forms',
+
+    # Local
     'users.apps.UsersConfig',
     'home.apps.HomeConfig',
 ]
@@ -87,7 +90,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'django_boiler.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
@@ -101,7 +103,6 @@ DATABASES = {
         'PORT': os.environ.get('DB_PORT'),
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -121,7 +122,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
@@ -134,7 +134,6 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
@@ -151,3 +150,6 @@ AUTH_USER_MODEL = 'users.CustomUser'
 # login robi redirect na profile my niue mamy profile wiec tutaj zmieniamy na home
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
+
+# on wygeneruje hrml (zmodyfikuje form) wiec dajemy jaka biblioteka
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
