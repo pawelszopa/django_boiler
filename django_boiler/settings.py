@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'home',
+    'users.apps.UsersConfig',
 ]
 
 MIDDLEWARE = [
@@ -145,3 +146,5 @@ STATICFILES_FINDERS = [
     "django.contrib.staticfiles.finders.FileSystemFinder",
     "django.contrib.staticfiles.finders.AppDirectoriesFinder"
 ]
+
+AUTH_USER_MODEL = 'users.CustomUser'
