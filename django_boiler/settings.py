@@ -22,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DJANGO_DEBUG')
+DEBUG = int(os.environ.get('DJANGO_DEBUG', default=0))
 
 ALLOWED_HOSTS = [
     '127.0.0.1',
@@ -43,6 +43,10 @@ INSTALLED_APPS = [
     'crispy_forms',
     'allauth',
     'allauth.account',
+    #github
+    # 'allauth.socialaccount',
+    # 'allauth.socialaccount.providers.github',
+
 
 
     # Local
@@ -158,7 +162,7 @@ ACCOUNT_LOGOUT_REDIRECT = 'home'
 # on wygeneruje hrml (zmodyfikuje form) wiec dajemy jaka biblioteka
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-SITE_ID = 1
+SITE_ID = 2
 
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
@@ -175,3 +179,5 @@ ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_EMAIL_REQUIRED = True
 # aby sprawdzic czy email istnieje trzeba zrobic zapytanie do bazy i to ponizej sprawdza
 ACCOUNT_UNIQUE_EMAIL = True
+# github
+# ACCOUNT_EMAIL_VERIFICATION = 'none'

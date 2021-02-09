@@ -1,15 +1,19 @@
 {% extends '_base.html' %}
+{#{% load socialaccount %}#}
 
 {% block content %}
-    <h1 class="hld-primary">Welcome home</h1>
+    <div class="container">
+        <h1 class="hld-primary">Welcome home</h1>
 
-    {% if user.is_authenticated %}
-        Hi {{ user.email }}
-        <p><a href="{% url 'account_logout' %}" class="btn btn-danger">Logout</a></p>
-    {% else %}
-         <p>You are not logged in</p>
-         <a href="{% url 'account_login' %}" class="btn btn-success">Log In</a>
-         <a href="{% url 'account_signup' %}" class="btn btn-success">Sign Up</a>
+        {% if user.is_authenticated %}
+            Hi {{ user.username }}
+            <p><a href="{% url 'account_logout' %}" class="btn btn-danger">Logout</a></p>
+        {% else %}
+            <p>You are not logged in</p>
+            <a href="{% url 'account_login' %}" class="btn btn-success">Log In</a>
+            <a href="{% url 'account_signup' %}" class="btn btn-success">Sign up</a>
+{#            <a href="{% provider_login_url 'github' %}" class="btn btn-success">Sign Up</a>#}
 
-    {% endif %}
+        {% endif %}
+    </div>
 {% endblock %}

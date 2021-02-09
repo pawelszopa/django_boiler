@@ -16,7 +16,7 @@ services:
       - db
     environment:
       - "DJANGO_SECRET_KEY=secret"
-      - "DJANGO_DEBUG=True"
+      - "DJANGO_DEBUG=1"
       - "DB_NAME=postgres"
       - "DB_USER=postgres"
       - "DB_PASSWORD=postgres"
