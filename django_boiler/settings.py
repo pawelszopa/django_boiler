@@ -38,9 +38,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
+    'django.contrib.sites',
     # Third-party
     'crispy_forms',
+    'allauth',
+    'allauth.account',
+
 
     # Local
     'users.apps.UsersConfig',
@@ -150,6 +153,25 @@ AUTH_USER_MODEL = 'users.CustomUser'
 # login robi redirect na profile my niue mamy profile wiec tutaj zmieniamy na home
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
+ACCOUNT_LOGOUT_REDIRECT = 'home'
 
 # on wygeneruje hrml (zmodyfikuje form) wiec dajemy jaka biblioteka
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+SITE_ID = 1
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend'
+)
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+ACCOUNT_SESSION_REMEMBER = True
+# remember me
+# usowanie haslo x2
+ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_EMAIL_REQUIRED = True
+# aby sprawdzic czy email istnieje trzeba zrobic zapytanie do bazy i to ponizej sprawdza
+ACCOUNT_UNIQUE_EMAIL = True
